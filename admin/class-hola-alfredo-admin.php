@@ -150,6 +150,17 @@ class Hola_Alfredo_Admin {
 
 
 	/**
+	 *  Save the plugin options
+	 *
+	 *
+	 * @since    1.0.0
+	 */
+	public function options_update() {
+		register_setting( $this->plugin_name, $this->plugin_name, array($this, 'validate') );
+	}
+
+
+	/**
 	 * Validate all options fields
 	 *
 	 * @since    1.0.0

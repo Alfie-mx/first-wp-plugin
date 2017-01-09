@@ -21,6 +21,12 @@
 
     <form method="post" name="cleanup_options" action="options.php">
 
+	    <?php
+        /*
+         * This line will add a nonce, option_page, action, and a http_referer field as hidden inputs.
+         */
+        settings_fields($this->plugin_name); ?>
+
         <!-- remove some meta and generators from the <head> -->
         <fieldset>
             <legend class="screen-reader-text"><span>Clean WordPress head section</span></legend>
