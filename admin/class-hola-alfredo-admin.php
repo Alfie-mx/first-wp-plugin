@@ -148,4 +148,23 @@ class Hola_Alfredo_Admin {
 		include_once( 'partials/hola-alfredo-admin-display.php' );
 	}
 
+
+	/**
+	 * Validate all options fields
+	 *
+	 * @since    1.0.0
+	 */
+	public function validate($input) {
+		// All checkboxes inputs
+		$valid = array();
+		//Cleanup
+		$valid['cleanup'] = (isset($input['cleanup']) && !empty($input['cleanup'])) ? 1 : 0;
+		$valid['comments_css_cleanup'] = (isset($input['comments_css_cleanup']) && !empty($input['comments_css_cleanup'])) ? 1: 0;
+		$valid['gallery_css_cleanup'] = (isset($input['gallery_css_cleanup']) && !empty($input['gallery_css_cleanup'])) ? 1 : 0;
+		$valid['body_class_slug'] = (isset($input['body_class_slug']) && !empty($input['body_class_slug'])) ? 1 : 0;
+		$valid['jquery_cdn'] = (isset($input['jquery_cdn']) && !empty($input['jquery_cdn'])) ? 1 : 0;
+		$valid['cdn_provider'] = esc_url($input['cdn_provider']);
+		return $valid;
+	}
+
 }
